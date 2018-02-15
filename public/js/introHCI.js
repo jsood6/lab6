@@ -9,9 +9,28 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+	
 	$('.project a').click(addProjectDetails);
 
-	$('#colorBtn').click(randomizeColors);
+	//$('#colorBtn').click(randomizeColors);
+}
+
+
+
+function addProject(result){
+	console.log(result);
+	var projectHTML = '<a href="#" class="thumbnail">'+
+    '<img src="' + result['image'] + '" class="img">' +
+    '<p>' + result['title'] + '</p>' +
+    '<p><small>' + result['date'] + '</small></p></a>';
+    
+   	$("#project-container").html(projectHTML);
+   	$("#proect-description").html(result['summary']);
+
+   	$("#project" + result.id + ".details").html(projectHTML);
+
+  
+
 }
 
 /*
@@ -26,5 +45,10 @@ function addProjectDetails(e) {
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
 
+	$.get('/project/' + idNumber, addProject);
+
 	console.log("User clicked on project " + idNumber);
+	console.log
 }
+
+
