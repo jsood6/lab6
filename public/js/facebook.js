@@ -23,8 +23,8 @@ function statusChangeCallback(response) {
 function changeUser(response){
 	$(".facebookLogin").hide();
   $(".jumbotron h1").text(response.name);
-  $(".profile img").attr("src","https://static.pexels.com/photos/47258/pexels-photo-47258.jpeg");
-  console.log(response.picture.url);
+  $(".profile img").attr("src", response.picture.data.url);
+  console.log(response.picture.data.url);
 
 }
 

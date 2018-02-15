@@ -48,7 +48,7 @@ function addProjectDetails(e) {
 	$.get('/project/' + idNumber, addProject);
 
 	console.log("User clicked on project " + idNumber);
-	console.log
+	
 }
 
 
